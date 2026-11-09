@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cotiza by dutech — Cotizaciones profesionales en 1 minuto</title>
+<meta name="description" content="Crea cotizaciones en PDF con consecutivo y fecha en un minuto. Para contratistas, técnicos e independientes. Empieza gratis.">
+<meta property="og:title" content="cotiza by dutech">
+<meta property="og:description" content="Cotizaciones profesionales en PDF, con consecutivo y fecha, en 1 minuto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#00203F;--mint:#36ECDE;--mint-soft:#e6fcfa;--ink:#0b2540;--muted:#5b6b7c;--line:#d9e2ea;--bg:#f4f8fb}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.5}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header.top{background:var(--mint);color:var(--navy)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:inline-flex;align-items:center;gap:10px}.brand img{width:34px;height:34px;border-radius:9px;display:block}
+  .brand{font-weight:700;font-size:24px;letter-spacing:-.5px;text-transform:lowercase;text-decoration:none}
+  .brand small{font-size:15px;font-weight:500}
+  .btn{display:inline-block;font:inherit;font-weight:600;border-radius:14px;padding:14px 22px;text-decoration:none;border:0;cursor:pointer}
+  .btn.primary{background:var(--navy);color:var(--mint)}
+  .btn.mint{background:var(--mint);color:var(--navy)}
+  .btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+  .btn.sm{padding:9px 16px;font-size:14px}
+  .hero{background:var(--mint);color:var(--navy);padding:36px 0 56px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+  h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:0 0 16px;letter-spacing:-1px}
+  .hero p.lead{font-size:18px;margin:0 0 24px;max-width:520px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero small{display:block;margin-top:14px;font-size:13px;opacity:.85}
+  .phone{justify-self:center;width:min(300px,100%);background:var(--navy);border-radius:32px;padding:10px;box-shadow:0 20px 50px rgba(0,32,63,.35)}
+  .phone video{width:100%;display:block;border-radius:24px;background:#000;aspect-ratio:9/16}
+  section{padding:60px 0}
+  section.alt{background:var(--bg)}
+  h2{font-size:clamp(24px,3.6vw,34px);margin:0 0 8px;letter-spacing:-.5px;color:var(--navy)}
+  .sub{color:var(--muted);margin:0 0 30px;max-width:620px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+  .card .n{width:36px;height:36px;border-radius:50%;background:var(--mint);color:var(--navy);display:grid;place-items:center;font-weight:700;margin-bottom:12px}
+  .card h3{margin:0 0 6px;font-size:18px;color:var(--navy)}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:760px}
+  .plan{border:2px solid var(--line);border-radius:20px;padding:26px;background:#fff}
+  .plan.pro{border-color:var(--navy);box-shadow:0 12px 30px rgba(0,32,63,.12)}
+  .plan h3{margin:0;font-size:20px;color:var(--navy)}
+  .price{font-size:36px;font-weight:700;margin:8px 0;color:var(--navy)}
+  .price small{font-size:15px;font-weight:500;color:var(--muted)}
+  .plan ul{list-style:none;padding:0;margin:14px 0 22px}
+  .plan li{padding:5px 0 5px 26px;position:relative;font-size:15px}
+  .plan li::before{content:"✓";position:absolute;left:0;color:#118a5a;font-weight:700}
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600;color:var(--navy)}
+  details p{margin:10px 0 0;color:var(--muted)}
+  .final{background:var(--navy);color:#fff;text-align:center}
+  .final h2{color:var(--mint)}
+  .final p{color:#cfe0ee;max-width:560px;margin:0 auto 24px}
+  footer{padding:26px 0;font-size:13px;color:var(--muted);text-align:center}
+  @media (max-width:800px){.hero .wrap{grid-template-columns:1fr}.phone{order:-1;width:min(240px,70%)}}
+</style>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="../assets/logo.jpeg" alt="" width="34" height="34">cotiza <small>by</small> dutech</a>
+    <a class="btn primary sm" id="topCta" href="#planes">Probar gratis</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Cotizaciones profesionales en 1 minuto</h1>
+        <p class="lead">Deja de cotizar por mensajes sueltos. Llena los datos, agrega tus ítems y descarga un PDF con consecutivo, fecha y total calculado.</p>
+        <div class="cta">
+          <a class="btn primary" id="heroApp" href="#">Probar gratis</a>
+          <a class="btn ghost" id="heroWa" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+        <small>Empieza gratis, sin tarjeta.<br>Una herramienta de DUTECH · Barranquilla, Colombia</small>
+      </div>
+      <div class="phone">
+        <video controls playsinline preload="metadata" poster="../assets/poster.jpg">
+          <source src="../assets/video-promo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <section id="como">
+    <div class="wrap">
+      <h2>Así de fácil</h2>
+      <p class="sub">Pensado para contratistas, maestros de obra, técnicos e independientes que cotizan todos los días.</p>
+      <div class="cards">
+        <div class="card"><div class="n">1</div><h3>Datos del cliente</h3><p>Escribe el nombre, el teléfono y el proyecto. Tus datos de empresa se guardan solos.</p></div>
+        <div class="card"><div class="n">2</div><h3>Agrega tus ítems</h3><p>Descripción, cantidad y valor. El total y el IVA se calculan por ti.</p></div>
+        <div class="card"><div class="n">3</div><h3>Descarga el PDF</h3><p>Sale con consecutivo (COT-0001, 0002…) y la fecha del día, listo para enviar por WhatsApp.</p></div>
+        <div class="card"><div class="n">4</div><h3>Envía y haz seguimiento</h3><p>Mándala por WhatsApp, marca si fue aprobada y recibe recordatorios de las que no han respondido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="planes">
+    <div class="wrap">
+      <h2>Planes</h2>
+      <p class="sub">Empieza gratis y pasa a Pro cuando lo necesites.</p>
+      <div class="plans">
+        <div class="plan">
+          <h3>Gratis</h3>
+          <div class="price">$0</div>
+          <ul>
+            <li><span id="freeLimit">3</span> cotizaciones al mes</li>
+            <li>PDF con consecutivo, fecha, descuento y anticipo</li>
+            <li>Catálogo, historial y estados</li>
+            <li>Resumen de ventas y recordatorios de seguimiento</li>
+            <li>Hasta 2 ediciones por cotización sin gastar cupo</li>
+            <li>El PDF lleva la marca de cotiza by dutech al pie</li>
+          </ul>
+          <a class="btn ghost" id="planFree" href="#">Crear cuenta gratis</a>
+        </div>
+        <div class="plan pro">
+          <h3>Pro</h3>
+          <div class="price">$<span id="pricePro">49.900</span> <small>/ mes</small></div>
+          <ul>
+            <li>Cotizaciones ilimitadas</li>
+            <li>PDF sin la marca de cotiza by dutech</li>
+            <li>PDF con el color de tu marca</li>
+            <li>Todo lo del plan gratis</li>
+            <li>Soporte por WhatsApp</li>
+          </ul>
+          <a class="btn primary" id="planPro" href="#" target="_blank" rel="noopener">Activar Pro por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Preguntas frecuentes</h2>
+      <p class="sub"></p>
+      <details><summary>¿Necesito instalar algo?</summary><p>No. Funciona desde el navegador del celular o del computador.</p></details>
+      <details><summary>¿Qué pasa cuando uso mis cotizaciones gratis?</summary><p>Puedes seguir viendo tu historial. Para crear más ese mes, activas el plan Pro escribiéndonos por WhatsApp.</p></details>
+      <details><summary>¿Cómo pago el plan Pro?</summary><p>Por ahora lo activamos por WhatsApp, con el medio de pago que acordemos. Más adelante agregaremos pago automático.</p></details>
+      <details><summary>¿Mis datos y los de mis clientes están seguros?</summary><p>Cada cuenta solo puede ver sus propias cotizaciones.</p></details>
+      <details><summary>¿Quién está detrás?</summary><p>DUTECH S.A.S., una empresa de tecnología de Barranquilla, Colombia.</p></details>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Tu próxima cotización, lista en un minuto</h2>
+      <p>Pruébalo gratis y deja de perder tiempo armando cotizaciones a mano.</p>
+      <a class="btn mint" id="finalApp" href="#">Probar gratis</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><a href="/">← Volver a DUTECH</a> · Powered by DUTECH · © <span id="year"></span> DUTECH S.A.S · Barranquilla, Colombia · <a id="mailF" href="#"></a></div>
+</footer>
+
+<script src="../config.js"></script>
+<script>
+(function(){
+  var C = window.LANDING_CONFIG || {};
+  var wa = "https://wa.me/" + encodeURIComponent(C.WHATSAPP || "");
+  function setHref(id, url){ var el = document.getElementById(id); if (el) el.href = url; }
+  setHref("heroApp", C.APP_URL || "#"); setHref("planFree", C.APP_URL || "#"); setHref("finalApp", C.APP_URL || "#");
+  setHref("heroWa", wa + "?text=" + encodeURIComponent("Hola, quiero saber más de cotiza by dutech."));
+  setHref("planPro", wa + "?text=" + encodeURIComponent("Hola, quiero activar el plan Pro de cotiza by dutech."));
+  var p = document.getElementById("pricePro"); if (p && C.PRICE_PRO) p.textContent = C.PRICE_PRO;
+  var f = document.getElementById("freeLimit"); if (f && C.FREE_LIMIT) f.textContent = C.FREE_LIMIT;
+  var m=document.getElementById("mailF"); if(m&&C.EMAIL){m.href="mailto:"+C.EMAIL; m.textContent=C.EMAIL;}
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

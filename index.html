@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DUTECH — Herramientas digitales para negocios y técnicos</title>
+<meta name="description" content="DUTECH S.A.S, Barranquilla, Colombia: soporte técnico, equipos, impresión, seguridad y CCTV para empresas, y herramientas digitales como cotiza by dutech.">
+<meta property="og:title" content="DUTECH — Herramientas digitales para negocios y técnicos">
+<meta property="og:description" content="Herramientas simples que ahorran tiempo. Prueba gratis cotiza by dutech.">
+<meta name="theme-color" content="#36ECDE">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#00203F;--navy2:#06335c;--mint:#36ECDE;--mint-soft:#e6fcfa;--ink:#0b2540;--muted:#5b6b7c;--line:#d9e2ea;--bg:#f4f8fb}
+  *{box-sizing:border-box}
+  .brand{display:inline-flex;align-items:center;gap:10px}.brand img{width:34px;height:34px;border-radius:9px;display:block}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;font:inherit;font-weight:600;border-radius:14px;padding:14px 24px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.mint{background:var(--mint);color:var(--navy)}
+  .btn.navy{background:var(--navy);color:var(--mint)}
+  .btn.ghost{border:1.5px solid rgba(255,255,255,.45);color:#fff}
+  .btn.sm{padding:9px 16px;font-size:14px}
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(0,32,63,.92);backdrop-filter:blur(8px)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:700;font-size:24px;letter-spacing:-.8px;color:var(--mint);text-decoration:none}
+  nav a.l{color:#cfe0ee;text-decoration:none;margin-right:20px;font-size:14px;font-weight:500}
+  nav a.l:hover{color:var(--mint)}
+  /* HERO */
+  .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:70px 0 90px}
+  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;animation:float 14s ease-in-out infinite}
+  .hero::before{width:420px;height:420px;background:var(--mint);top:-140px;right:-80px}
+  .hero::after{width:340px;height:340px;background:#1b6fc2;bottom:-160px;left:-100px;animation-delay:-7s}
+  @keyframes float{50%{transform:translate(30px,24px) scale(1.08)}}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .tag{display:inline-block;background:rgba(54,236,222,.15);color:var(--mint);border:1px solid rgba(54,236,222,.4);border-radius:100px;padding:5px 14px;font-size:13px;font-weight:600;margin-bottom:18px}
+  h1{font-size:clamp(32px,5.4vw,56px);line-height:1.08;letter-spacing:-1.5px;margin:0 0 18px}
+  h1 em{font-style:normal;color:var(--mint)}
+  .hero p.lead{font-size:18px;color:#cfe0ee;max-width:520px;margin:0 0 28px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  /* calculadora interactiva */
+  .calc{background:#fff;color:var(--ink);border-radius:22px;padding:20px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .calc h3{margin:0 0 2px;font-size:16px;color:var(--navy)}
+  .calc small{color:var(--muted);display:block;margin-bottom:12px;font-size:12.5px}
+  .crow{display:grid;grid-template-columns:1fr 54px 92px;gap:6px;margin-bottom:6px}
+  .calc input[type=text],.calc input[type=number]{width:100%;font:inherit;font-size:14px;padding:8px 9px;border:1.5px solid var(--line);border-radius:9px;min-width:0}
+  .calc input:focus{outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(54,236,222,.3)}
+  .calc label.iva{display:flex;gap:8px;align-items:center;font-size:13px;margin:10px 0;color:var(--muted)}
+  .ctot{border-top:2px solid var(--navy);padding-top:8px;display:grid;gap:3px;font-size:14px}
+  .ctot div{display:flex;justify-content:space-between}
+  .ctot .big{font-size:22px;font-weight:700;color:var(--navy)}
+  .calc .btn{display:block;width:100%;margin-top:12px;text-align:center}
+  [hidden]{display:none!important}
+  /* secciones */
+  section{padding:70px 0}
+  section.alt{background:var(--bg)}
+  h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.8px;margin:0 0 8px;color:var(--navy)}
+  .sub{color:var(--muted);margin:0 0 34px;max-width:620px}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+  .tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .tool:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,32,63,.12);border-color:var(--mint)}
+  .tool.live{border:2px solid var(--navy)}
+  .ico{width:54px;height:54px;border-radius:16px;background:var(--mint-soft);display:grid;place-items:center;font-size:26px;margin-bottom:14px}
+  .tool h3{margin:0 0 6px;font-size:20px;color:var(--navy)}
+  .tool p{margin:0 0 18px;color:var(--muted);font-size:15px;flex:1}
+  .tool .btn{text-align:center}
+  .state{position:absolute;top:18px;right:18px;font-size:12px;font-weight:600;border-radius:100px;padding:4px 11px}
+  .state.on{background:#dff5ea;color:#118a5a}
+  .state.soon{background:#eceff3;color:#4a5a6a}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:s}
+  .step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+  .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--mint);color:var(--navy);font-weight:700;margin-bottom:10px}
+  .step h3{margin:0 0 4px;font-size:17px;color:var(--navy)}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+  .about{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+  .about p{color:var(--muted)}
+  .facts{display:grid;gap:10px}
+  .fact{background:var(--mint-soft);border-radius:14px;padding:14px 18px;font-weight:600;color:var(--navy)}
+  .fact small{display:block;font-weight:400;color:var(--muted)}
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600;color:var(--navy)}
+  details p{margin:10px 0 0;color:var(--muted)}
+  .contact{background:var(--navy);color:#fff;text-align:center}
+  .contact h2{color:var(--mint)}
+  .contact p{color:#cfe0ee;max-width:540px;margin:0 auto 22px}
+  .mailbox{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:6px 6px 6px 18px;margin-bottom:14px;max-width:100%}
+  .mailbox a{font-weight:600;font-size:18px;color:#fff;text-decoration:none;overflow-wrap:anywhere}
+  footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:100px;font-size:14px;z-index:30}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+  @media (max-width:820px){
+    .hero{padding:40px 0 60px}
+    .hero .wrap,.about{grid-template-columns:1fr}
+    nav a.l{display:none}
+    section{padding:52px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero::before,.hero::after{animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.jpeg" alt="" width="34" height="34">dutech</a>
+    <nav>
+      <a class="l" href="#servicios">Servicios</a>
+      <a class="l" href="#herramientas">Herramientas</a>
+      <a class="l" href="#nosotros">Nosotros</a>
+      <a class="l" href="#contacto">Contacto</a>
+      <a class="btn mint sm" id="topCta" href="cotiza/">Probar cotiza gratis</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tag">Powered by DUTECH</span>
+        <h1>Herramientas digitales que <em>ahorran tiempo</em> a tu negocio</h1>
+        <p class="lead">DUTECH crea aplicaciones simples para técnicos, contratistas y pequeñas empresas. Sin instalar nada, desde el celular o el computador.</p>
+        <div class="cta">
+          <a class="btn mint" href="cotiza/">Probar cotiza by dutech</a>
+          <a class="btn ghost" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+
+      <div class="calc" aria-label="Calculadora de ejemplo">
+        <h3>Pruébalo aquí mismo</h3>
+        <small>Así de rápido se arma una cotización en cotiza by dutech.</small>
+        <div class="crow"><input type="text" id="d1" value="Instalación aire 12.000 BTU" aria-label="Descripción 1"><input type="number" id="q1" value="1" min="0" aria-label="Cantidad 1"><input type="number" id="v1" value="450000" min="0" aria-label="Valor 1"></div>
+        <div class="crow"><input type="text" id="d2" value="Tubería de cobre (m)" aria-label="Descripción 2"><input type="number" id="q2" value="4" min="0" aria-label="Cantidad 2"><input type="number" id="v2" value="35000" min="0" aria-label="Valor 2"></div>
+        <label class="iva"><input type="checkbox" id="iva"> Incluir IVA (19%)</label>
+        <div class="ctot">
+          <div><span>Subtotal</span><span id="r-sub">$0</span></div>
+          <div id="r-ivaRow" hidden><span>IVA 19%</span><span id="r-iva">$0</span></div>
+          <div class="big"><span>Total</span><span id="r-tot">$0</span></div>
+        </div>
+        <a class="btn navy" href="cotiza/">Crear mi cotización en PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <h2 class="reveal">Servicios para empresas</h2>
+      <div class="tools">
+        <article class="tool reveal">
+          <div class="ico">💻</div>
+          <h3>Soporte y equipos</h3>
+          <p>Mantenimiento de computadores, partes y periféricos.</p>
+          <a class="btn mint" data-svc="Soporte y equipos" href="#contacto">Solicitar información</a>
+        </article>
+        <article class="tool reveal">
+          <div class="ico">🖨️</div>
+          <h3>Impresión</h3>
+          <p>Alquiler de impresoras, partes y consumibles.</p>
+          <a class="btn mint" data-svc="Impresión" href="#contacto">Solicitar información</a>
+        </article>
+        <article class="tool reveal">
+          <div class="ico">📹</div>
+          <h3>Seguridad y CCTV</h3>
+          <p>Cámaras y seguridad perimetral.</p>
+          <a class="btn mint" data-svc="Seguridad y CCTV" href="#contacto">Solicitar información</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="herramientas">
+    <div class="wrap">
+      <h2 class="reveal">Nuestras herramientas</h2>
+      <p class="sub reveal">Empezamos por la que más piden los técnicos y contratistas. Las demás vienen en camino.</p>
+      <div class="tools">
+        <article class="tool live reveal">
+          <span class="state on">Disponible</span>
+          <div class="ico">🧾</div>
+          <h3>cotiza by dutech</h3>
+          <p>Cotizaciones profesionales en PDF con consecutivo, descuento, anticipo y seguimiento por WhatsApp. Gratis para empezar.</p>
+          <a class="btn navy" href="cotiza/">Conocer y probar</a>
+        </article>
+        <article class="tool reveal">
+          <span class="state soon">Próximamente</span>
+          <div class="ico">❄️</div>
+          <h3>Órdenes de servicio</h3>
+          <p>Para técnicos de refrigeración y aires: registra visitas, equipos y trabajos realizados, y entrega el comprobante al cliente.</p>
+          <a class="btn mint" data-soon="Órdenes de servicio" href="#contacto">Avísame cuando salga</a>
+        </article>
+        <article class="tool reveal">
+          <span class="state soon">Próximamente</span>
+          <div class="ico">🎧</div>
+          <h3>Mesa de ayuda para pymes</h3>
+          <p>Recibe y organiza las solicitudes de soporte de tus clientes o empleados en un solo lugar, con estado y responsable.</p>
+          <a class="btn mint" data-soon="Mesa de ayuda" href="#contacto">Avísame cuando salga</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="wrap">
+      <h2 class="reveal">Cotizar en 3 pasos</h2>
+      <p class="sub reveal">Pensado para quien cotiza todos los días y no quiere perder tiempo.</p>
+      <div class="steps">
+        <div class="step reveal"><h3>Escribe los datos</h3><p>Cliente, ítems, cantidades y valores. El total y el IVA se calculan solos.</p></div>
+        <div class="step reveal"><h3>Descarga el PDF</h3><p>Con consecutivo, fecha, notas y validez, listo para enviar.</p></div>
+        <div class="step reveal"><h3>Haz seguimiento</h3><p>Envíalo por WhatsApp y recibe recordatorios de las que no han respondido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="nosotros">
+    <div class="wrap about">
+      <div>
+        <h2 class="reveal">Quiénes somos</h2>
+        <p class="reveal">DUTECH S.A.S es una empresa de tecnología de Barranquilla, Colombia. Damos soporte técnico, equipos, impresión y seguridad a empresas, y construimos herramientas digitales pensadas para el día a día de los oficios y pequeños negocios: simples de usar, claras en lo que cuestan y con soporte directo de las personas que las hacen.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact">Sin instalar nada<small>Funciona en el navegador</small></div>
+        <div class="fact">Empiezas gratis<small>Pasas a Pro solo si lo necesitas</small></div>
+        <div class="fact">Soporte directo<small>Escríbenos y te respondemos</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="reveal">Preguntas frecuentes</h2>
+      <p class="sub"></p>
+      <details><summary>¿Necesito instalar algo?</summary><p>No. Todo funciona desde el navegador del celular o del computador.</p></details>
+      <details><summary>¿Cuánto cuesta cotiza by dutech?</summary><p>Puedes empezar gratis con un número limitado de cotizaciones al mes. El plan Pro quita el límite y la marca de cotiza by dutech, y te deja poner el color de tu marca; el precio está en la página de la herramienta.</p></details>
+      <details><summary>¿Cuándo salen las otras herramientas?</summary><p>Estamos trabajando en ellas. Escríbenos y te avisamos cuando estén listas.</p></details>
+      <details><summary>¿Cómo contacto a DUTECH?</summary><p>Por correo, a <span class="mailTxt">soporte@dutech.com.co</span>.</p></details>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <h2 class="reveal">Hablemos</h2>
+      <p class="reveal">¿Dudas, ideas o quieres que te avisemos cuando salga una herramienta? Escríbenos.</p>
+      <div class="mailbox reveal"><a id="mailLink" href="#">soporte@dutech.com.co</a><button class="btn mint sm" id="copyMail" type="button">Copiar</button></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Powered by DUTECH · © <span id="year"></span> DUTECH S.A.S · Barranquilla, Colombia</div>
+</footer>
+
+<script src="config.js"></script>
+<script>
+(function(){
+  "use strict";
+  var C = window.LANDING_CONFIG || {};
+  var email = C.EMAIL || "soporte@dutech.com.co";
+  var $ = function(id){ return document.getElementById(id); };
+  var cop = function(n){ return "$" + Math.round(n || 0).toLocaleString("es-CO"); };
+  var toastT;
+  function toast(t){ var o=document.querySelector(".toast"); if(o) o.remove(); var e=document.createElement("div"); e.className="toast"; e.textContent=t; document.body.appendChild(e); clearTimeout(toastT); toastT=setTimeout(function(){e.remove();},2400); }
+
+  $("year").textContent = new Date().getFullYear();
+  $("mailLink").href = "mailto:" + email; $("mailLink").textContent = email;
+  Array.prototype.forEach.call(document.querySelectorAll(".mailTxt"), function(e){ e.textContent = email; });
+  $("copyMail").onclick = function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(email).then(function(){ toast("Correo copiado"); }, function(){ toast(email); });
+    else toast(email);
+  };
+  Array.prototype.forEach.call(document.querySelectorAll("[data-svc]"), function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      location.href = "mailto:" + email + "?subject=" + encodeURIComponent("Solicitud de información: " + a.dataset.svc) + "&body=" + encodeURIComponent("Hola, represento a la empresa ____ y quiero información sobre el servicio de " + a.dataset.svc + ".");
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-soon]"), function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      location.href = "mailto:" + email + "?subject=" + encodeURIComponent("Avísenme cuando salga: " + a.dataset.soon) + "&body=" + encodeURIComponent("Hola, quiero que me avisen cuando salga la herramienta " + a.dataset.soon + ".");
+    });
+  });
+
+  function recalc(){
+    var sub = 0;
+    [1,2].forEach(function(i){
+      var q = Math.max(0, parseFloat($("q"+i).value) || 0), v = Math.max(0, parseFloat($("v"+i).value) || 0);
+      sub += q * v;
+    });
+    var on = $("iva").checked, iva = on ? Math.round(sub * 0.19) : 0;
+    $("r-sub").textContent = cop(sub); $("r-ivaRow").hidden = !on; $("r-iva").textContent = cop(iva); $("r-tot").textContent = cop(sub + iva);
+  }
+  ["q1","v1","q2","v2","iva"].forEach(function(id){ $(id).addEventListener("input", recalc); $(id).addEventListener("change", recalc); });
+  recalc();
+
+  var els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: .15 });
+    Array.prototype.forEach.call(els, function(e){ io.observe(e); });
+  } else Array.prototype.forEach.call(els, function(e){ e.classList.add("in"); });
+})();
+</script>
+</body>
+</html>
+
